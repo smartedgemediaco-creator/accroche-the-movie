@@ -20,7 +20,7 @@ export default function Home() {
           </div>
 
           <a
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/accroche_movie?igsh=MW13OGNlZnRkbzc1Nw=="
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-[#8b3a3a]/50 text-[#c47a7a] hover:text-white hover:border-[#c47a7a] hover:bg-[#8b3a3a]/15 transition-all duration-500 group mb-8"
