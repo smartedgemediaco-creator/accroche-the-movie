@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# large media files
+/public/videos/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -1,15 +1,15 @@
 export interface Movie {
   title: string
-  driveUrl: string
+  videoUrl: string
 }
 
 export const movies: Movie[] = [
   {
     title: "Accroche Movie Screening (Convened By The Oyo State Ministry Of Health)",
-    driveUrl: "https://drive.google.com/file/d/1z9y1OCBT5crMKOSDOVTmoNLkjXSByzTy/view?usp=drive_link",
+    videoUrl: "/videos/MINI ACC 1080P.mp4",
   },
   {
     title: "Accroche (trailer)",
-    driveUrl: "https://drive.google.com/file/d/1z9y1OCBT5crMKOSDOVTmoNLkjXSByzTy/view?usp=drive_link",
+    videoUrl: "/videos/MINI ACC 1080P.mp4",
   },
 ]

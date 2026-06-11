@@ -30,13 +30,7 @@ function LockIcon() {
   )
 }
 
-function getFileId(driveUrl: string): string {
-  const match = driveUrl.match(/\/d\/([a-zA-Z0-9_-]+)/)
-  return match ? match[1] : ""
-}
-
 function FullScreenModal({ movie, onClose }: { movie: Movie; onClose: () => void }) {
-  const fileId = getFileId(movie.driveUrl)
   const [showTitle, setShowTitle] = useState(false)
 
   useEffect(() => {
@@ -68,17 +62,16 @@ function FullScreenModal({ movie, onClose }: { movie: Movie; onClose: () => void
       style={{ animation: "fadeIn 0.3s ease both" }}
     >
       <div
-        className="relative w-full h-full overflow-hidden"
+        className="relative w-full h-full"
         onClick={(e) => e.stopPropagation()}
         style={{ animation: "scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both" }}
       >
-        <iframe
-          src={`https://drive.google.com/file/d/${fileId}/preview?autoplay=1`}
-          className="absolute left-0"
-          style={{ top: "-48px", width: "100%", height: "calc(100% + 48px)" }}
-          allow="autoplay; encrypted-media"
-          allowFullScreen
-          sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"
+        <video
+          src={movie.videoUrl}
+          className="w-full h-full object-contain bg-black"
+          autoPlay
+          controls
+          playsInline
         />
       </div>
 
@@ -198,9 +191,9 @@ function PasswordModal({ onSuccess, onClose }: { onSuccess: () => void; onClose:
   )
 }
 
-function MovieCard({ title, driveUrl, onPlay, index }: {
+function MovieCard({ title, videoUrl, onPlay, index }: {
   title: string
-  driveUrl: string
+  videoUrl: string
   onPlay: () => void
   index: number
 }) {
@@ -309,7 +302,7 @@ export default function MovieSection() {
             {i > 0 && <div className="divider-glow-thin max-w-2xl mx-auto mb-10 md:mb-16" />}
             <MovieCard
               title={movie.title}
-              driveUrl={movie.driveUrl}
+              videoUrl={movie.videoUrl}
               index={i}
               onPlay={() => handlePlay(movie)}
             />
