@@ -149,7 +149,7 @@ export default function MovieSection() {
 
   return (
     <>
-      <section className="relative min-h-screen pb-12 md:pb-32 pt-16 md:pt-24 px-6 md:px-10 lg:px-16 max-w-7xl mx-auto space-y-10 md:space-y-16">
+      <section className="relative pb-6 md:pb-16 pt-16 md:pt-24 px-6 md:px-10 lg:px-16 max-w-7xl mx-auto space-y-10 md:space-y-16">
         <div className="absolute inset-0 page-pattern pointer-events-none opacity-50" />
 
         <div className="relative mb-12 md:mb-16 text-center">

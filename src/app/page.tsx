@@ -5,8 +5,8 @@ export default function Home() {
     <main className="min-h-screen bg-[#050505]">
       <MovieSection />
 
-      <footer className="relative pt-6 md:pt-14 pb-10 md:pb-16 px-6 overflow-hidden">
-        <div className="divider-glow mb-6 md:mb-12 max-w-2xl mx-auto" />
+      <footer className="relative pt-4 md:pt-8 pb-10 md:pb-16 px-6 overflow-hidden">
+        <div className="divider-glow mb-4 md:mb-8 max-w-2xl mx-auto" />
 
         <div className="relative text-center max-w-lg mx-auto">
           <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase text-[#c8a84e]/40 mb-4">
