@@ -60,6 +60,9 @@ function FullScreenModal({ movie, onClose }: { movie: Movie; onClose: () => void
           autoPlay
           controls
           playsInline
+          controlsList="nodownload noremoteplayback"
+          disablePictureInPicture
+          onContextMenu={(e) => e.preventDefault()}
         >
           <source src={movie.videoUrl} type="video/mp4" />
           Your browser does not support the video tag.
