@@ -94,6 +94,7 @@ function MovieCard({ title, videoUrl, imageUrl, onPlay, index }: {
           fill
           className="object-cover transition-all duration-700 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, 80vw"
+          unoptimized
         />
 
         <div className="absolute inset-0 opacity-[0.08]"
