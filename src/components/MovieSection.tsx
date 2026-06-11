@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 import Image from "next/image"
 import { movies } from "@/data/movies"
 import type { Movie } from "@/data/movies"
@@ -17,6 +17,15 @@ function CloseIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-6 h-6">
       <path d="M18 6L6 18M6 6l12 12" />
+    </svg>
+  )
+}
+
+function LockIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8 md:w-10 md:h-10">
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
     </svg>
   )
 }
@@ -101,6 +110,94 @@ function FullScreenModal({ movie, onClose }: { movie: Movie; onClose: () => void
   )
 }
 
+const VIDEO_PASSWORD = "laocoe"
+
+function PasswordModal({ onSuccess, onClose }: { onSuccess: () => void; onClose: () => void }) {
+  const [value, setValue] = useState("")
+  const [error, setError] = useState(false)
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    inputRef.current?.focus()
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose()
+    }
+    document.addEventListener("keydown", handleKeyDown)
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown)
+      document.body.style.overflow = ""
+    }
+  }, [onClose])
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (value.toLowerCase() === VIDEO_PASSWORD) {
+      onSuccess()
+    } else {
+      setError(true)
+      setTimeout(() => setError(false), 500)
+    }
+  }
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-6"
+      onClick={onClose}
+      style={{ animation: "fadeIn 0.3s ease both" }}
+    >
+      <div
+        className="relative w-full max-w-md"
+        onClick={(e) => e.stopPropagation()}
+        style={{ animation: "scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both" }}
+      >
+        <div className="text-center mb-8">
+          <div className="w-16 h-16 md:w-20 md:h-20 mx-auto rounded-full border border-[#c8a84e]/20 flex items-center justify-center text-[#c8a84e]/60 mb-5">
+            <LockIcon />
+          </div>
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-2">Restricted Access</h2>
+          <p className="text-sm text-zinc-500">Enter the password to view this content</p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="relative">
+            <input
+              ref={inputRef}
+              type="password"
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              placeholder="Password"
+              className="w-full px-4 py-3 bg-white/5 border border-zinc-800 rounded-xl text-white text-sm placeholder-zinc-600 focus:outline-none focus:border-[#c8a84e]/30 transition-all duration-300"
+              style={{ animation: error ? "shake 0.4s ease both" : undefined }}
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full py-3 rounded-xl bg-[#c8a84e]/10 border border-[#c8a84e]/20 text-[#c8a84e]/80 text-sm tracking-[0.2em] uppercase font-medium hover:bg-[#c8a84e]/20 hover:border-[#c8a84e]/30 transition-all duration-300"
+          >
+            Unlock
+          </button>
+        </form>
+
+        {error && (
+          <p className="text-xs text-red-400/80 text-center mt-4" style={{ animation: "fadeIn 0.2s ease both" }}>
+            Incorrect password. Try again.
+          </p>
+        )}
+      </div>
+
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 z-10 backdrop-blur-sm"
+        aria-label="Close"
+      >
+        <CloseIcon />
+      </button>
+    </div>
+  )
+}
+
 function MovieCard({ title, driveUrl, onPlay, index }: {
   title: string
   driveUrl: string
@@ -173,8 +270,11 @@ function MovieCard({ title, driveUrl, onPlay, index }: {
 }
 
 export default function MovieSection() {
+  const [pendingMovie, setPendingMovie] = useState<Movie | null>(null)
   const [playingMovie, setPlayingMovie] = useState<Movie | null>(null)
   const closePlayer = useCallback(() => setPlayingMovie(null), [])
+
+  const handlePlay = (movie: Movie) => setPendingMovie(movie)
 
   return (
     <>
@@ -211,11 +311,18 @@ export default function MovieSection() {
               title={movie.title}
               driveUrl={movie.driveUrl}
               index={i}
-              onPlay={() => setPlayingMovie(movie)}
+              onPlay={() => handlePlay(movie)}
             />
           </div>
         ))}
       </section>
+
+      {pendingMovie && (
+        <PasswordModal
+          onSuccess={() => { setPlayingMovie(pendingMovie); setPendingMovie(null) }}
+          onClose={() => setPendingMovie(null)}
+        />
+      )}
 
       {playingMovie && (
         <FullScreenModal movie={playingMovie} onClose={closePlayer} />
