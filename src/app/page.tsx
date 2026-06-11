@@ -8,7 +8,7 @@ export default function Home() {
       <footer className="relative pt-4 md:pt-8 pb-10 md:pb-16 px-6 overflow-hidden">
         <div className="divider-glow mb-4 md:mb-8 max-w-2xl mx-auto" />
 
-        <div className="relative text-center max-w-lg mx-auto">
+        <div className="relative text-center max-w-lg mx-auto flex flex-col items-center">
           <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase text-[#c8a84e]/40 mb-4">
             Laocoe Productions
           </p>
