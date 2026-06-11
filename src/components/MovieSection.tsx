@@ -130,11 +130,9 @@ function MovieCard({ title, videoUrl, imageUrl, onPlay, index }: {
         <div className="absolute bottom-0 left-0 right-0 pt-48 pb-6 md:pb-10 px-6 md:px-10">
           <div className="mx-auto max-w-5xl text-center">
             <h2 className="text-xl md:text-4xl lg:text-5xl font-bold text-white leading-tight text-balance">
-              {index === 0 ? (
-                <span className="text-sm md:text-lg lg:text-xl font-semibold tracking-tight">Accroche Movie Screening (Convened By The Oyo State Ministry Of Health)</span>
-              ) : (
-                title
-              )}
+              <span className="text-sm md:text-lg lg:text-xl font-semibold tracking-tight">
+                {title}
+              </span>
             </h2>
           </div>
         </div>
