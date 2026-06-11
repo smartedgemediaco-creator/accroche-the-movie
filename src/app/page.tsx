@@ -47,7 +47,7 @@ export default function Home() {
           href="https://laocoeproductions.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-xs md:text-sm tracking-[0.25em] uppercase text-[#c8a84e]/40 hover:text-[#c8a84e] transition-all duration-500 group"
+          className="inline-flex items-center gap-2 text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 hover:text-white transition-all duration-500 group"
         >
           <span className="w-0 group-hover:w-6 h-px bg-[#c8a84e]/50 transition-all duration-500" />
           laocoeproductions.com
