@@ -71,9 +71,10 @@ function FullScreenModal({ movie, onClose }: { movie: Movie; onClose: () => void
   )
 }
 
-function MovieCard({ title, videoUrl, onPlay, index }: {
+function MovieCard({ title, videoUrl, imageUrl, onPlay, index }: {
   title: string
   videoUrl: string
+  imageUrl: string
   onPlay: () => void
   index: number
 }) {
@@ -88,7 +89,7 @@ function MovieCard({ title, videoUrl, onPlay, index }: {
     >
       <div className="relative w-full aspect-video md:aspect-[21/9] overflow-hidden rounded-3xl bg-zinc-950 transition-all duration-700 group-hover:shadow-[0_0_80px_rgba(200,168,78,0.08)]">
         <Image
-          src="/images/video-placeholder.png"
+          src={imageUrl}
           alt={title}
           fill
           className="object-cover transition-all duration-700 group-hover:scale-105"
@@ -181,6 +182,7 @@ export default function MovieSection() {
             <MovieCard
               title={movie.title}
               videoUrl={movie.videoUrl}
+              imageUrl={movie.imageUrl}
               index={i}
               onPlay={() => handlePlay(movie)}
             />
