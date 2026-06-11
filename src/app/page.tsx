@@ -36,6 +36,24 @@ export default function Home() {
           </p>
         </div>
       </footer>
+
+      <div className="pb-10 md:pb-14 px-6 text-center">
+        <div className="flex items-center justify-center gap-3 mb-5">
+          <span className="w-6 h-px bg-gradient-to-r from-transparent via-[#c8a84e]/20 to-transparent" />
+          <span className="w-1 h-1 rounded-full bg-[#c8a84e]/30" />
+          <span className="w-6 h-px bg-gradient-to-r from-transparent via-[#c8a84e]/20 to-transparent" />
+        </div>
+        <a
+          href="https://laocoeproductions.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-xs md:text-sm tracking-[0.25em] uppercase text-[#c8a84e]/40 hover:text-[#c8a84e] transition-all duration-500 group"
+        >
+          <span className="w-0 group-hover:w-6 h-px bg-[#c8a84e]/50 transition-all duration-500" />
+          laocoeproductions.com
+          <span className="w-0 group-hover:w-6 h-px bg-[#c8a84e]/50 transition-all duration-500" />
+        </a>
+      </div>
     </main>
   )
 }
