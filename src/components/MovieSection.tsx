@@ -67,12 +67,14 @@ function FullScreenModal({ movie, onClose }: { movie: Movie; onClose: () => void
         style={{ animation: "scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both" }}
       >
         <video
-          src={movie.videoUrl}
           className="w-full h-full object-contain bg-black"
           autoPlay
           controls
           playsInline
-        />
+        >
+          <source src={movie.videoUrl} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       <div
