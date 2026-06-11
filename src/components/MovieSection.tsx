@@ -46,12 +46,9 @@ function FullScreenModal({ movie, onClose }: { movie: Movie; onClose: () => void
     document.addEventListener("keydown", handleKeyDown)
     document.body.style.overflow = "hidden"
 
-    const autoClose = setTimeout(onClose, 120000)
-
     return () => {
       document.removeEventListener("keydown", handleKeyDown)
       document.body.style.overflow = ""
-      clearTimeout(autoClose)
     }
   }, [onClose])
 
