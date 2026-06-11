@@ -207,18 +207,23 @@ function MovieCard({ title, videoUrl, onPlay, index }: {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30" />
 
         <div className="absolute inset-0 flex items-center px-6 md:px-10 lg:px-16 pb-12 md:pb-16">
-          <div className="flex w-full items-center justify-between">
-            <p className="text-xs md:text-sm tracking-[0.35em] uppercase text-white/40 group-hover:text-[#c8a84e]/70 transition-colors duration-500">
-              Click to
-            </p>
-            <p className="text-xs md:text-sm tracking-[0.35em] uppercase text-white/40 group-hover:text-[#c8a84e]/70 transition-colors duration-500">
-              play
-            </p>
-            <div className="w-20 h-20 md:w-28 md:h-28 rounded-full border-2 border-white/30 flex items-center justify-center transition-all duration-500 group-hover:border-[#c8a84e] group-hover:bg-[#c8a84e]/15 group-hover:scale-110 group-hover:shadow-[0_0_100px_rgba(200,168,78,0.3)] backdrop-blur-sm bg-white/5 animate-bounce">
-              <span className="text-white/70 group-hover:text-[#c8a84e] transition-colors duration-500">
-                <PlayIcon />
-              </span>
+          <div className="flex w-full items-center">
+            <div className="flex-1 text-left">
+              <p className="text-xs md:text-sm tracking-[0.35em] uppercase text-white/40 group-hover:text-[#c8a84e]/70 transition-colors duration-500">
+                Click to
+              </p>
             </div>
+            <div className="flex-1 flex flex-col items-center gap-3 md:gap-4">
+              <p className="text-xs md:text-sm tracking-[0.35em] uppercase text-[#c8a84e] transition-colors duration-500">
+                play
+              </p>
+              <div className="w-20 h-20 md:w-28 md:h-28 rounded-full border-2 border-white/30 flex items-center justify-center transition-all duration-500 group-hover:border-[#c8a84e] group-hover:bg-[#c8a84e]/15 group-hover:scale-110 group-hover:shadow-[0_0_100px_rgba(200,168,78,0.3)] backdrop-blur-sm bg-white/5">
+                <span className="text-white/70 group-hover:text-[#c8a84e] transition-colors duration-500">
+                  <PlayIcon />
+                </span>
+              </div>
+            </div>
+            <div className="flex-1" />
           </div>
         </div>
 
