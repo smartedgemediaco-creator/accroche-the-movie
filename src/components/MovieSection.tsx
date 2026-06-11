@@ -149,7 +149,7 @@ export default function MovieSection() {
 
   return (
     <>
-      <section className="relative min-h-screen pb-24 md:pb-32 pt-16 md:pt-24 px-6 md:px-10 lg:px-16 max-w-7xl mx-auto space-y-10 md:space-y-16">
+      <section className="relative min-h-screen pb-12 md:pb-32 pt-16 md:pt-24 px-6 md:px-10 lg:px-16 max-w-7xl mx-auto space-y-10 md:space-y-16">
         <div className="absolute inset-0 page-pattern pointer-events-none opacity-50" />
 
         <div className="relative mb-12 md:mb-16 text-center">
@@ -173,11 +173,11 @@ export default function MovieSection() {
           </p>
         </div>
 
-        <div className="divider-glow max-w-xs mx-auto mb-10 md:mb-16" />
+        <div className="divider-glow max-w-xs mx-auto mb-6 md:mb-16" />
 
         {movies.map((movie, i) => (
           <div key={i}>
-            {i > 0 && <div className="divider-glow-thin max-w-2xl mx-auto mb-10 md:mb-16" />}
+            {i > 0 && <div className="divider-glow-thin max-w-2xl mx-auto mb-6 md:mb-16" />}
             <MovieCard
               title={movie.title}
               videoUrl={movie.videoUrl}
