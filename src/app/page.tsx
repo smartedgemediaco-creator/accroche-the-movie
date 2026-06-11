@@ -35,7 +35,7 @@ export default function Home() {
             href="https://laocoeproductions.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 text-xs md:text-sm tracking-[0.25em] uppercase text-[#7c3aed]/60 hover:text-[#7c3aed] transition-all duration-500 group mb-10"
+            className="inline-flex items-center gap-2.5 text-xs md:text-sm tracking-[0.25em] uppercase text-[#38bdf8]/60 hover:text-[#38bdf8] transition-all duration-500 group mb-10"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-3.5 h-3.5">
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
