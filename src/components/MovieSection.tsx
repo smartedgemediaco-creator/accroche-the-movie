@@ -31,14 +31,6 @@ function LockIcon() {
 }
 
 function FullScreenModal({ movie, onClose }: { movie: Movie; onClose: () => void }) {
-  const [showTitle, setShowTitle] = useState(false)
-
-  useEffect(() => {
-    const showTimer = setTimeout(() => setShowTitle(true), 800)
-    const hideTimer = setTimeout(() => setShowTitle(false), 4000)
-    return () => { clearTimeout(showTimer); clearTimeout(hideTimer) }
-  }, [])
-
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose()
@@ -72,23 +64,6 @@ function FullScreenModal({ movie, onClose }: { movie: Movie; onClose: () => void
           <source src={movie.videoUrl} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-      </div>
-
-      <div
-        className="absolute bottom-0 left-0 right-0 px-8 pointer-events-none transition-all duration-700"
-        style={{
-          opacity: showTitle ? 1 : 0,
-          transform: showTitle ? "translateY(0)" : "translateY(12px)",
-        }}
-      >
-        <div className="mx-auto max-w-4xl text-center pb-6 md:pb-8">
-          <h2 className="text-sm md:text-lg lg:text-xl font-medium text-white/50 leading-tight">
-            {movie.title}
-          </h2>
-          <p className="text-sm md:text-lg font-semibold text-zinc-300 tracking-widest uppercase mt-1.5">
-            Hooked
-          </p>
-        </div>
       </div>
 
       <button
