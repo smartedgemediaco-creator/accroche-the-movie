@@ -183,7 +183,7 @@ export default function MovieSection() {
         <div className="divider-glow max-w-xs mx-auto mb-6 md:mb-16" />
 
         {movies.map((movie, i) => (
-          <div key={i}>
+          <div key={i} className="max-w-3xl mx-auto">
             {i > 0 && <div className="divider-glow-thin max-w-2xl mx-auto mb-6 md:mb-16" />}
             <MovieCard
               title={movie.title}
