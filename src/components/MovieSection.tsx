@@ -171,6 +171,13 @@ export default function MovieSection() {
           >
             Hooked
           </p>
+
+          <p
+            className="text-sm md:text-base leading-relaxed text-zinc-400 text-balance max-w-3xl mx-auto mt-8 md:mt-10 px-6 font-serif"
+            style={{ animation: "fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both" }}
+          >
+            <span className="text-[#c8a84e]/70 font-semibold">ACCROCHE</span> tells the story of a young man who leaves his modest home in the Benin Republic, driven by the dream of pursuing higher education in Nigeria. Within the vibrant yet challenging world of university life, he encounters influences that lead him down a dangerous path. What begins as ambition slowly unravels into a struggle with substance abuse, exposing the toll it takes on his mind, his studies, and his family. The film confronts the realities of addiction while emphasizing the power of mentorship, guidance, and the choices that shape youth and their future.
+          </p>
         </div>
 
         <div className="divider-glow max-w-xs mx-auto mb-6 md:mb-16" />
