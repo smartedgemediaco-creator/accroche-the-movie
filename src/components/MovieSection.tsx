@@ -21,6 +21,15 @@ function CloseIcon() {
   )
 }
 
+function getVideoType(videoUrl: string) {
+  const lowerUrl = videoUrl.toLowerCase()
+
+  if (lowerUrl.endsWith(".webm")) return "video/webm"
+  if (lowerUrl.endsWith(".ogg")) return "video/ogg"
+
+  return "video/mp4"
+}
+
 function FullScreenModal({ movie, onClose }: { movie: Movie; onClose: () => void }) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -55,7 +64,7 @@ function FullScreenModal({ movie, onClose }: { movie: Movie; onClose: () => void
           disablePictureInPicture
           onContextMenu={(e) => e.preventDefault()}
         >
-          <source src={movie.videoUrl} type="video/mp4" />
+          <source src={movie.videoUrl} type={getVideoType(movie.videoUrl)} />
           Your browser does not support the video tag.
         </video>
       </div>
