@@ -7,7 +7,7 @@ export interface Movie {
 export const movies: Movie[] = [
   {
     title: "World International Day Against Drug and Substance Abuse",
-    videoUrl: "/api/b2/signed-url?file=Unndlea-Graded.webm",
+    videoUrl: "/videos/Unndlea-Graded.webm",
     imageUrl: "/images/ndlea.png",
   },
   {
